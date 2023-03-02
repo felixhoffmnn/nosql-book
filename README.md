@@ -8,6 +8,8 @@ First you need to install a local latex environment (e.g. [TeX Live Full](https:
 
 To build the document, run `make` in the root directory of this repository. This will create a `out/latex` directory with the compiled document (`dokumentation.pdf`). Alternatively, it will be automatically build by `latex-workshop`.
 
+For code examples, please refer to [`code_beispiele.tex`](./content/code_beispiele.tex).
+
 ## Contributing
 
 > :warning: You **never** contribute to this repository **directly**! Push access to all branches is disabled and all changes need to be done via a pull request.
@@ -19,3 +21,26 @@ To build the document, run `make` in the root directory of this repository. This
    - For images, you need to add them to the `images` directory
    - Acronyms can be added to the `ads/acronyms.tex` file
 4. Create a pull request
+
+## Possible Issues
+
+- **Citation**:
+
+  If you want to cite a source at the end of a sentence you can use the following command:
+
+  ```latex
+  \parencite{key}
+  ```
+
+  If you want to cite a source in the middle of a sentence you can use the following command:
+
+  ```latex
+  \textcite{key}
+  ```
+
+- **Acronyms**:
+  If you only include the acronym in the short form (`acs`), you are likely to get an error. To fix this, you should let latex decide if to use the short or long form. To do this, you can use the following command:
+
+  ```latex
+  \ac{key}
+  ```
