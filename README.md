@@ -19,3 +19,17 @@ To build the document, run `make` in the root directory of this repository. This
    - For images, you need to add them to the `images` directory
    - Acronyms can be added to the `ads/acronyms.tex` file
 4. Create a pull request
+
+### Citations
+
+If you want to cite a source at the end of a sentence you can use the following command:
+
+```latex
+\parencite{key}
+```
+
+If you want to cite a source in the middle of a sentence you can use the following command:
+
+```latex
+\textcite{key}
+```
