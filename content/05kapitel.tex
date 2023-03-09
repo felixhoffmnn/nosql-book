@@ -30,7 +30,14 @@ To Sum it all up, Neo4j has come a long way of steady growth and is expanding ar
 
 \subsection{Graph Model and functionality} \label{subsec:graphModelFunctionalityNeo4j}
 
-Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
+A graph Database works differently than a relational Database. Other than a relational Database, a graph Database uses graphs to store the Data in. Generally speaking instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information.
+These edges are directed edges, so it is possible, to just have a one directed connection, which is not possible in classical relational databases \parencite{graphmodelneo4j}.
+
+In order to insert new data into a graph database, it is quite easy and fast. Knots can be easily added to the graph and the according edges can be created. The result is a graph, which can grow over the time and become quite big. The fact, that a graph database does not need a primary key ensures, that the model does not become too big. 
+If a 1 to 1 transformation from a relational database to a graph database would be performed (incl. ids), the model would be quite more big \parencite{graphmodelneo4j}.
+
+The deletion of data in graph models is also as easy as inserting new data. In a relational database rules are needed for updates or deletions like cascading. This is not necessary in graph database, because there can't be empty knotes. The only thing, that could happen is, that a knote has no edge outgoing or incomming. In this case, the knot
+does not need to be deleted, because other relations (edges) can be created later on \parencite{graphmodelneo4j}.
 
 \subsection{Advantages and Disadvantages} \label{subsec:advantagesDisadvantagesNeo4j}
 
