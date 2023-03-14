@@ -16,37 +16,41 @@ Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupid
 
 \subsection{History} \label{subsec:historyNeo4j}
 
-The history of Neo4j starts in the year 2007, where the founder and CEO Chandra Rangan worked with other Students on a Graph Database Project for the \ac{IIT}. The database was a success at the university so the founders
+The history of Neo4j started in 2007 when the founder and CEO Chandra Rangan worked with other students on a Graph Database Project for the \ac{IIT}. The database was a success at the university, so the founders
 decided to start a company. Neo4j has grown over the years and is very popular specifically among developers in India \parencite{historyneo4j}.
 
-Nowadays the company behind Neo4j isn`t a startup anymore. Many big Companies like the top 20 credit institutes from North America uses this graph Database.  In June 2022 Neo4j had more than 700 Employees around the globe.
-Also a community Edition of the database is available, which is a open source product. The company recently released a platform, where every developer can make suggestions about wished functionalities and even contribute
-to the software written in Java. On the other Hand exists a closed source database, which can be bought for example by big Companies \parencite{historyneo4j}.
+Nowadays, the company behind Neo4j is not a startup anymore. Many big companies, like North America's top 20 credit institutes, use this graph Database. In June 2022, Neo4j had more than 700 Employees around the globe.
+The company recently released a platform where every developer can make suggestions about wished functionalities and even contribute
+to the software written in Java. On the other hand, a closed source database can be bought, for example, by big companies \parencite{historyneo4j}. Also, a community Edition of the database, an open-source product, is available.
 
-In the future Neo4j wants to expand globally, focusing on India due to \enquote{a larger developer ecosystem} \parencite{historyneo4j}. But not only in India, also in other regions like the US or europe the request 
-of Neo4j is big, therefore Neo4j is hiring country Managers to expand the presence in these countries too \parencite{historyneo4j}.
+In the future, Neo4j wants to expand globally, focusing on India due to \enquote{a larger developer ecosystem} \parencite{historyneo4j}. However, in India and other regions like the US or Europe, the request 
+for Neo4j is big. Therefore Neo4j is hiring country Managers to expand the presence in these countries too \parencite{historyneo4j}.
 
-To Sum it all up, Neo4j has come a long way of steady growth and is expanding around the globe. In the future the continue of the growth can be assumed.
+To sum it all up, Neo4j has experienced steady growth and is expanding around the globe. In the future, the continuation of growth can be assumed.
 
 \subsection{Graph Model and functionality} \label{subsec:graphModelFunctionalityNeo4j}
 
-A graph Database works differently than a relational Database. Other than a relational Database, a graph Database uses graphs to store the Data in. Generally speaking instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information.
-For example, to save: Tom, 29 years old, a graph with the Knot \enquote{Tom} and a knot with \enquote{29}, linked with an edge is needed. These edges are directed edges, so only one directed connections exist. To get a bidirected edge, 2 onedirected edges are needed \parencite{graphmodelneo4j}.
+A graph Database works differently than a relational Database. Unlike a relational database, a graph database uses graphs to store data. Generally speaking, instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information.
 
-Inserting new data into a graph database, is quite easy and fast. Knots can be easily added to the graph and the according edges can be created. The result is a graph, which can grow over the time and become quite big. The fact, that a graph database does not need a primary key ensures, that the model does not become too big. 
-If a 1 to 1 transformation from a relational database to a graph database would be performed (incl. ids), the model would be quite bigger \parencite{graphmodelneo4j}.
+% TODO: Example doesn't make sense -> update or change it
 
-The deletion of data in graph models is also as easy as inserting new data. In a relational database rules are needed for updates or deletions like cascading or set null. This is not necessary in graph database, because there can't be empty knots. Knots always have content inside them or will be removed. The only thing, that could happen is, that a knot has no edge outgoing and incomming. In this case, the knot
-does not need to be deleted, because other relations (edges) can be created later on \parencite{graphmodelneo4j} \parencite{funcneo4j}.
+For example, to save: Tom, 29 years old, a graph with the Knot \enquote{Tom}, and a knot with \enquote{29}, linked with an edge, is needed. These edges are directed edges, so only one directed connections exist. A bidirectional edge can be represented by two unidirectional edges \parencite{graphmodelneo4j}.
 
-As already mentioned in the chapter \nameref{subsec:historyNeo4j} does neo4j offers two editions, a community edition and a enterprise edition. The difference between those two is, that the enterprise edition also offers functionalities for clustering and scaling. Therefore the community edition works perfectly fine, to set up a smaller
-graph database for a privat use case, where clusteringis not required. But both editions offer a fully functional database and every operation on the database can be performed. So customers are not forced to buy the enterprise edition in order to fully use the database \parencite{Neo4jfeatures}.
+Inserting new data into a graph database is relatively easy and fast. Knots can be easily added to the graph, and the according edges can be created. The result is a graph that can grow and become quite big. The fact that a graph database does not need a primary key ensures that the model stays manageable. 
+If a one-to-one transformation from a relational database to a graph database were performed (including ids), the model would be relatively large \parencite{graphmodelneo4j}.
 
-Neo4j offers a lot of functionality, that can be used. First of all Neo4j offers a powerful query language called Cypher, which is designed specifically for graph data. Cypher allows users to query the graph using natural language syntax and traverse the graph in real time. Also are multiple indexing methods available, so text-based search can be performed.
-For the enterprise version is it possible, to scale horizontically, which makes the database highly performant \parencite{Neo4jfeatures}.
+Deleting data in graph models is also as easy as inserting new data. In a relational database, rules are necessary for updates or deletions like cascading or setting null. This is unnecessary in a graph database because there cannot be empty knots. Knots always have content inside them or will be removed. The only thing that could happen is that a knot has no edge outgoing and incoming. In this case, the knot
+does not need to be deleted because other relations (edges) can be created later on \parencite{graphmodelneo4j} \parencite{funcneo4j}.
 
-Neo4j is build to depict relations, hence the usage of the database is mostly to display social networks or for fraud detection. Neo4j can be integrated with various different systems to use its benefits, which will be discussed in the chapter \nameref{subsec:advantagesDisadvantagesNeo4j}. Due to the possibilty to integrate into other systems and the focus on displaying relations, neo4j and graph databases overall
-are used widely. To be able to detect fraud, makes this database very attractive for big enterprise in the current time, where fraud can be seen everywhere \parencite{Neo4jfeatures}.
+As mentioned in the chapter \nameref{subsec:historyNeo4j} neo4j offers two editions, a community, and an enterprise edition. The difference between those two is that the enterprise edition also offers functionalities for clustering and scaling. Therefore the community edition works perfectly fine to set up a smaller
+graph database for a personal use case where clustering is not required. Nevertheless, both editions offer a fully functional database, and every operation on the database can be performed. So customers are not forced to buy the enterprise edition to use the database to its fullest \parencite{Neo4jfeatures}.
+
+Neo4j offers a lot of functionality. First, Neo4j offers a powerful query language called Cypher, explicitly designed for graph data. Cypher allows users to query the graph using natural language syntax and traverse the graph in real-time. Neo4J provides multiple indexing methods so that text-based searches can be performed.
+It is possible for the enterprise version to scale horizontally, making the database highly performant \parencite{Neo4jfeatures}.
+
+Neo4j is built to depict relations. Hence, the database is mostly used to display social networks or for fraud detection. The ability to detect fraud makes Neo4j very attractive for big enterprises because fraud is a common problem \parencite{Neo4jfeatures}. Neo4j can be integrated with various systems to use its benefits, which will be discussed in the chapter \nameref{subsec:advantagesDisadvantagesNeo4j}. Due to the possibility of integrating into other systems and the focus on displaying relations, Neo4j and other graph databases 
+are used widely.
+
 \subsection{Advantages and Disadvantages} \label{subsec:advantagesDisadvantagesNeo4j}
 
 Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
