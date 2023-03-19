@@ -1,6 +1,6 @@
 %!TEX root = ../dokumentation.tex
 
-\chapter{Couchbase DB (Document)} \label{ch:couchebase}
+\chapter{Couchbase DB (Document)} \label{ch:couchbase}
 \chapterauthor{Taha Erkoc, Lara Hennes, Christian Herzgen and Ilya Suplin}
 
 \section{History}
@@ -16,6 +16,17 @@
 \section{Fields of Application}
 
 \section{Installation and setup of database}
+
+\subsection{Windows}
+
+
+\subsection{Docker}
+If you want to have multiple nodes, or do not have a clean system, we recommend to install Couchbase in a Docker Container. Couchbase has an official Docker image, which can be found in the Docker Hub.
+
+\begin{lstlisting}
+docker run -d --name db -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 couchbase
+\end{lstlisting}
+
 
 \section{Example}
 
