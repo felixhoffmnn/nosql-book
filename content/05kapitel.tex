@@ -60,18 +60,25 @@ Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupid
 % TODO: Advantages related to RDBMS (GraphDB vs. RDBMS)
 % TODO: Advantages related to Neo4j (Neo4j vs. other GraphDBs)
 
-\section{Implementation} \label{sec:implementationNeo4j}
+\section{Migration of a Relational Model} \label{sec:migrationRelationModelneo4j}
 % Authors: Felix Hoffmann, Leopold Fuchs
-
-Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
-
-\subsection{Requirements} \label{subsec:requirementsNeo4j}
 
 Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
 
 \subsection{Installation} \label{subsec:installationNeo4j}
 
-Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
+For personal use cases, Neo4j can be installed on a local machine. For this installation either the Desktop Applikation (e.g. `.exe`, AppImage) or the Linux package can be used. For a production environment, Neo4j can be deployed using Docker. For more advanced use cases using Kubernetes provides the option to scale a Neo4j database horizontally.
+
+Following we will focus on deploying a single instance of Neo4j using a Docker container. 
+
+\begin{figure}[H]
+    \caption{Neo4j Docker Architecture} \label{fig:neo4jDockerArchitecture}
+    \missingfigure{neo4j docker architecture}
+\end{figure}
+
+% TODO: Add numbers for ports
+
+\autoref{fig:neo4jDockerArchitecture} shows our architecture we are going to use during this paper. As shown we deploy a single container which exposes two ports. The first port -- \dots -- exposed the \ac{ui} we can use to run Cypher queries. The second port -- \dots for this example -- exposes the \ac{bolt} which is used to communicate with the database.
 
 \subsection{Implementation in Python} \label{subsec:implementationPythonNeo4j}
 
