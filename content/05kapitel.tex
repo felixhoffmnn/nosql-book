@@ -60,10 +60,53 @@ Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupid
 % TODO: Advantages related to RDBMS (GraphDB vs. RDBMS)
 % TODO: Advantages related to Neo4j (Neo4j vs. other GraphDBs)
 
-\section{Migration of a Relational Model} \label{sec:migrationRelationModelneo4j}
+\section{Implementation of an Example}\label{sec:implementationExampleNeo4j}
 % Authors: Felix Hoffmann, Leopold Fuchs
 
+% TODO: Write a short introduction for the practical part
 Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
+
+\subsection{Migration of a Relational Model}\label{subsec:migrationRelationModelNeo4j}
+
+The following section focuses on the process of transferring a relational model to a graph model using Neo4j. The migration involves mapping entities and relationships from the relational model to nodes and edges in the graph model. By using the example of a food consumption database, this migration process will be illustrated. Last, key takeaways from this example will be described as general guidance for any migration from a relational to a graph model.
+
+\subsubsection*{Relational Model}
+
+\begin{figure}[H]
+    \centering
+    \caption{Relational Model of the Food Consumption Database}\label{fig:relationalModelNeo4j}
+    \includegraphics[width=0.9\textwidth]{images/neo4j_example_relational_model.png}
+\end{figure}
+
+\autoref{fig:relationalModelNeo4j} shows the relational model of a food consumption database. It consists of three main tables, \textit{Kunde}, \textit{Produkt}, and \textit{Allergen} that are connected by the link tables \textit{Konsumiert}, \textit{VertraegtNicht}, and \textit{EnthaeltAllergen}. The link tables are used to map the many-to-many relationships between the main tables.
+
+The \textit{Kunde} table contains customer data, such as first name, last name, or diet. The \textit{Produkt} table stores details about the products, such as name and nutritional values. Finally, in the \textit{Allergen} table, the name and nomenclature of the allergens are stored.
+
+As a relationship between \textit{Kunde} and \textit{Produkt}, the table \textit{Konsumiert} stores which products a customer has consumed. It also has an additional column \textit{Zetipunkt} for the consumption date. The table \textit{VertraegtNicht} contains information about the allergens that customers are allergic to. Last, the table \textit{EnthaeltAllergen} stores the allergens that are contained in products.
+
+\subsubsection*{Graph Model}
+
+\begin{figure}[H]
+    \centering
+    \caption{Graph Model of the Food Consumption Database}\label{fig:graphModelNeo4j}
+    \includegraphics[width=0.9\textwidth]{images/neo4j_example_graph_model.png}
+\end{figure}
+
+\autoref{fig:graphModelNeo4j} illustrates a graph model based on the previously described relational food consumption database. The main tables \textit{Kunde}, \textit{Produkt}, and \textit{Allergen} are now represented by a specific type of node with the table name as the label. It is important to notice that in contrast to the relational model, where all data is stored in a single table, in the graph model every row of a table is represented by a distinct node. Since nodes in Neo4j can have properties, the column values of the original table can be stored as properties of the nodes.
+
+In addition, the link tables \textit{Konsumiert}, \textit{VertraegtNicht}, and \textit{EnthaeltAllergen} are now represented by direct connections, so edges between nodes, of the entities of a relationship. For example, the relationship between \textit{Kunde} and \textit{Produkt} is now represented by an edge between the nodes of the \textit{Kunde} and \textit{Produkt} labels. The edges are labeled with the name of the relationship, in this case \textit{Konsumiert}. This edge also has a property \textit{Zetipunkt} that stores the consumption date.
+
+\subsubsection*{Key Takeaways}
+
+When migrating from a relational database model to a graph database model, there are several essential steps to follow, as could be noted in the previous example. These include --- most important --- the use of node labels, the mapping of table entries to nodes, the usage of relationships instead of foreign keys, and the replacement of link tables with relationships \parencite{neo4j_docs_migration}.
+
+In a graph database model, tables from the relational model are mapped to node labels. Each node label represents an entity type that can be used to query and analyze the data. In the example of the food consumption database, the \textit{Kunde} table would be mapped to a \textit{Kunde} node label, the \textit{Produkt} table to a \textit{Produkt} node label, and the \textit{Allergen} table to an \textit{Allergen} node label.
+
+In addition, for each row in a table, a separate node has to be created. The node is labeled with the name of the table, and the columns of the table are represented as properties of the node. In the previously shown example, a \textit{Kunde} node has properties such as \textit{Vorname}, \textit{Nachname}, or \textit{Ernaehrungsweise}, which were columns in the original relational schema.
+
+In relational databases, one-to-one or one-to-many relationships can be expressed by adding a foreign key of one of the participating tables of a relationship to the other. However, in a graph database model, relationships can be expressed by direct connections through edges between nodes. Hence, foreign keys are not necessary anymore. Just like nodes, relationships also have a label to distinguish between different kinds. For example, a \textit{Konsumiert} relationship might connect a \textit{Kunde} node with a \textit{Produkt} node, representing the fact that the customer has consumed the product. This approach of realizing relationships enables more complex and flexible queries without the need to join tables.
+
+Finally, for a many-to-many relationship in relational databases, there has to be a separate link table storing only foreign keys and potentially additional attributes of the relationship. In graph databases, these link tables can be replaced with relationships as well. Since relationships can have properties, any attributes of the original link table can be stored in this way. In that regard, Neo4j simplifies the data model and also eliminates the need for additional join operations that are required in relational models. In the food consumption database example, the link table \textit{Konsumiert} can be replaced by an edge between the nodes \textit{Kunde} and \textit{Produkt} with the additional property \textit{Zeitpunkt}.
 
 \subsection{Installation} \label{subsec:installationNeo4j}
 
