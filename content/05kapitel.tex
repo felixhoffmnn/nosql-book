@@ -31,7 +31,7 @@ To sum it all up, Neo4j has experienced steady growth and is expanding around th
 \subsection{Graph Model and functionality} \label{subsec:graphModelFunctionalityNeo4j}
 
 % TODO: change reference -> reference chapter where you implemented an example
-A graph Database works differently than a relational Database. Unlike a relational database, a graph database uses graphs to store data. Generally speaking, instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information. An example will be shown in the chapter \nameref{subsec:implementationPythonNeo4j}.
+A graph Database works differently than a relational Database. Unlike a relational database, a graph database uses graphs to store data. Generally speaking, instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information.
 
 To understand a graph database and how it works, some basic graph theory is needed, as well as some problems, that exist within graph databases. First of all, a definition of a graph is required. A graph consists of nodes and edges. Nodes can be connected with edges, but can also stand alone. If every Node has an edge, it is called a connected graph. If any node is connected with any other node, the graph is called fully connected.
 Furthermore, there are some specifications. An edge can be one directed or bi-directed. If a graph contains only one-directed edges, the graph is called \enquote{directed graph}. The edges can also contain weights, the resulting graph would then be called \enquote{weighted graph}. Weights and one directed edges are optional. If 2 nodes exists, that can't be endpoints, the graph is called disconnected, otherwise, it is a \enquote{connected graph} \parencite{graphBasics}.
@@ -39,7 +39,7 @@ Furthermore, there are some specifications. An edge can be one directed or bi-di
 With those basics, some problems within the graph theory, that are used in graph databases, can be discussed. The first problem is to find the shortest path between 2 nodes. For this purpose, the dijkstra algorithm exists. This algorithm finds the shortest path between 2 nodes but isn't quite fast. The algorithm starts at the starting node. Then in every iteration, it chooses the neighbor with the shortest way. This will be performed until all nodes have been reached.
 The algorithm can adjust former results, therefore all nodes need to be considered. This makes the algorithm slow \parencite{dijkstra}.
 
-The next problem is cycles within a graph. To detect cycles within an undirected a Breadth first search can be applied. Within a directed graph, a Depth First Traversal shows, if a cycle exists. Both algorithms are quite fast and therefore a cycle can be detected in a relatively short time \parencite{graphCircle} \parencite{cycle_directed}.
+The next problem is cycles within a graph. To detect cycles within an undirected a Breadth first search can be applied. Within a directed graph, a Depth First Traversal shows, if a cycle exists. Both algorithms are quite fast and therefore a cycle can be detected in a relatively short time \parencite{graphCircle, cycle_directed}.
 
 The last problem, that will be discussed is the \enquote{Königsberg Bridge Problem}. This problem asks the simple question, of whether a graph can be traversed so that each edge is visited only once, and if so, is there a point that can be start and endpoint. Such a way is called \enquote{eulerian way}. The
 \enquote{Königsberg Bridge Problem}  itself describes the situation in Königsberg and can't be solved, because there is no such a way. t most 2 nodes with an odd number of edges. For a directed graph, it must also be considered how often and whether one can get back from an edge \parencite{koenigsberger}.
@@ -110,26 +110,64 @@ Finally, for a many-to-many relationship in relational databases, there has to b
 
 \subsection{Installation} \label{subsec:installationNeo4j}
 
-For personal use cases, Neo4j can be installed on a local machine. For this installation either the Desktop Applikation (e.g. `.exe`, AppImage) or the Linux package can be used. For a production environment, Neo4j can be deployed using Docker. For more advanced use cases using Kubernetes provides the option to scale a Neo4j database horizontally.
+Neo4j can be installed on a local machine for personal use either via the Desktop Application (e.g., \texttt{.exe}, AppImage) or the Linux package \parencite{neo4j_neo4j_nodate}. For production environments, Neo4j can be deployed using Docker \parencite{neo4j_docs_introduction_nodate} or Kubernetes to scale the database horizontally.
 
-Following we will focus on deploying a single instance of Neo4j using a Docker container. 
+As Neo4j is implemented in Java, a \ac{jdk} must be installed, although the containerized versions may already include one.
+
+In this paper, we'll deploy a single instance of Neo4j using a Docker container. The container exposes two ports: \num{7687} for the \ac{ui} to run Cypher queries and \num{7474} for the \ac{bolt} used to communicate with the database.
+
+\subsection{Cypher Examples} \label{subsec:queryingNeo4j}
+
+To create nodes and query them, we'll use the graph model from \autoref{subsec:migrationRelationModelNeo4j}.
+
+\begin{code}[H]
+    \caption{Cypher Query to create a node} \label{code:cypherCreateNode}
+    \begin{minted}[linenos, breaklines]{cypher}
+// Create :Kunde nodes
+CREATE (FelixHoffmann:Kunde {KundenID: "42", Vorname: "Felix", Nachname: "Hoffmann", Ernaehrungsweise: "vegan", Naehrwert: 1337})
+
+// Create :Produkt nodes
+CREATE (BigMac:Produkt {ProduktID: "1", Name: "Big Mac", Naehrwert: 257})
+
+// Create :Allergen nodes
+CREATE (GlutenhaltigesGetreide:Allergen {Allergenname: "Glutenhaltiges Getreide", Nomenklatur: "gluten"})
+
+// Create :Konsumiert relationship
+CREATE (FelixHoffmann)-[:Konsumiert {datum: "2019-01-01"}]->(BigMac)
+    \end{minted}
+\end{code}
+
+\vspace{-\parskip}
+
+\autoref{code:cypherCreateNode} shows a simple Cypher query to create multiple nodes and a relationship. The \texttt{CREATE} keyword starts the query, followed by a unique key for the node and the node type specified by the \texttt{:} symbol and its label. We can then specify attributes related to the node, such as \texttt{Vorname} set to \texttt{Felix} and \texttt{Nachname} set to \texttt{Hoffmann}. Lastly, the \texttt{CREATE} keyword and the relationship between two nodes are defined using an arrow syntax. The relationship label is set to \texttt{Konsumiert}, and the \texttt{datum} attribute is set to \texttt{2019-01-01}.
+
+We then created additional nodes and relationships, resulting in the graph shown in \autoref{fig:neo4jGraph_1}. To retrieve this graph, we run the query \texttt{MATCH (n) RETURN n}, which matches all nodes in the database and returns them.
 
 \begin{figure}[H]
-    \caption{Neo4j Docker Architecture} \label{fig:neo4jDockerArchitecture}
-    \missingfigure{neo4j docker architecture}
+    \centering
+    \caption{Graph including all nodes in the database} \label{fig:neo4jGraph_1}
+    \includegraphics[width=0.7\textwidth]{images/neo4j_example_graph_1.png}
 \end{figure}
 
-% TODO: Add numbers for ports
+For this example, we created additional nodes and relationships. The query result is shown in \autoref{fig:neo4jGraph_1}. The graph shows all nodes and relationships in the database. This graph can be retrieved by running \texttt{MATCH (n) RETURN n}. The \texttt{MATCH} keyword is used to specify the pattern of the query. In this case, we want to match all nodes in the database. The \texttt{RETURN} keyword is used to specify the result of the query. In this case, we want to return all nodes in the database.
 
-\autoref{fig:neo4jDockerArchitecture} shows our architecture we are going to use during this paper. As shown we deploy a single container which exposes two ports. The first port -- \dots -- exposed the \ac{ui} we can use to run Cypher queries. The second port -- \dots for this example -- exposes the \ac{bolt} which is used to communicate with the database.
+\begin{code}[H]
+    \caption{Cypher Query to select allergic reactions} \label{code:cypherFindAllergicReactions}
+    \begin{minted}[linenos, breaklines]{cypher}
+// Detect customer who ate a product that contains an allergen that is not able to eat
+MATCH (k:Kunde)-[:Konsumiert]->(p:Produkt)
+(k)-[:VERTREAGT_NICHT]->(a:Allergen)<-[:ENTHAELT]-(p)
+RETURN k, a, p
+    \end{minted}
+\end{code}
 
-\subsection{Implementation in Python} \label{subsec:implementationPythonNeo4j}
+Next, we run a query to find all allergic reactions, shown in \autoref{code:cypherFindAllergicReactions}. The \texttt{MATCH} keyword specifies the query's pattern to match all nodes of types \texttt{Kunde} and \texttt{Produkt} connected by a relationship of type \texttt{Konsumiert}. We then specify that the customer does not tolerate an allergen, and the product contains this allergen. Lastly, we want to return the customer and the product. The query result is shown in \autoref{fig:neo4jGraph_2}.
 
-Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
-
-\subsection{Querying} \label{subsec:queryingNeo4j}
-
-Exercitation qui duis voluptate do esse aute. Minim deserunt ex minim sunt cupidatat est fugiat in pariatur ullamco. Enim esse voluptate nulla et sunt sint labore non ut eiusmod et. Deserunt laboris ullamco occaecat esse reprehenderit anim. Deserunt aute laboris tempor est occaecat duis in cupidatat.
+\begin{figure}[H]
+    \centering
+    \caption{Graph of a selection of Nodes} \label{fig:neo4jGraph_2}
+    \includegraphics[width=0.6\textwidth]{images/neo4j_example_graph_2.png}
+\end{figure}
 
 \section{Reflection} \label{sec:reflectionNeo4j}
 
