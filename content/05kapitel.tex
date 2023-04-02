@@ -137,8 +137,6 @@ CREATE (FelixHoffmann)-[:Konsumiert {datum: "2019-01-01"}]->(BigMac)
     \end{minted}
 \end{code}
 
-\vspace{-\parskip}
-
 \autoref{code:cypherCreateNode} shows a simple Cypher query to create multiple nodes and a relationship. The \texttt{CREATE} keyword starts the query, followed by a unique key for the node and the node type specified by the \texttt{:} symbol and its label. We can then specify attributes related to the node, such as \texttt{Vorname} set to \texttt{Felix} and \texttt{Nachname} set to \texttt{Hoffmann}. Lastly, the \texttt{CREATE} keyword and the relationship between two nodes are defined using an arrow syntax. The relationship label is set to \texttt{Konsumiert}, and the \texttt{datum} attribute is set to \texttt{2019-01-01}.
 
 We then created additional nodes and relationships, resulting in the graph shown in \autoref{fig:neo4jGraph_1}. To retrieve this graph, we run the query \texttt{MATCH (n) RETURN n}, which matches all nodes in the database and returns them.
