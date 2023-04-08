@@ -68,7 +68,7 @@ Replica sets are the basis for MongoDB's replication. A collection of mongod ins
 
 \begin{figure}[H]
     \centering
-    \caption{Replica set schematic (inspired by \parencite{roy_databases_2020})} \label{fig:Replica Sets}
+    \caption{Replica set schematic (inspired by \textcite{roy_databases_2020})} \label{fig:Replica Sets}
     \includegraphics[width=\textwidth]{images/Replica_Sets.jpeg}
 \end{figure}
 
@@ -92,7 +92,7 @@ Sharding in MongoDB has 3 main components:
 
 \section{Advantages}
 
-\textbf{Flexible data model}: MongoDB uses a flexible document data model that allows you to store data in a variety of ways. This makes it easy to adapt to changing business needs and to scale your data as your application grows (\cites{mongodb-datamodels}{knowledgenile-pro-con}).
+\textbf{Flexible data model}: MongoDB uses a flexible document data model that allows you to store data in a variety of ways. This makes it easy to adapt to changing business needs and to scale your data as your application grows \parencite{mongodb-datamodels, knowledgenile-pro-con}.
 
 \textbf{High scalability}: MongoDB is designed to handle large amounts of data and high traffic loads. With sharding it can be easily scaled horizontally by adding more nodes to a cluster \parencite{mongodb-scalability, dataflair_2018}. Furthermore, replica sets enable high availability, handling of redundancy/failover, and less read operation bottlenecks \parencite{mongodb-replica-sets}.
 
@@ -100,12 +100,12 @@ Sharding in MongoDB has 3 main components:
 
 \textbf{Rich query language}: MongoDB provides a powerful query language that supports a variety of operators and expressions for filtering, sorting, and aggregating data \parencite{mongodb-query}.
 
-\textbf{Easy Environment and Setup}: MongoDB requires little setup time and minimal effort to use. Modern JavaScript frameworks are available, and it is quicker and simpler to set up than RDBMS.
+\textbf{Easy Environment and Setup}: MongoDB requires little setup time and minimal effort to use. Modern JavaScript frameworks are available, and it is quicker and simpler to set up than \ac{RDBMS}.
 Because of this functionality, users can choose NoSQL architectures with confidence. In addition, compared to SQL databases, it offers faster options for learning and training \parencite{knowledgenile-pro-con, jamsheer_2019}.
 
 \section{Disadvantages}
 
-\textbf{Lack of ACID compliance}: MongoDB is a NoSQL database and does not support ACID (atomicity, consistency, isolation, durability) transactions. While it does provide atomicity at the document level, it does not support transactions that span multiple documents \parencite{mongodb-transactions, knowledgenile-pro-con}.
+\textbf{Lack of ACID compliance}: MongoDB is a \ac{NoSQL} database and does not support \ac{ACID} transactions. While it does provide atomicity at the document level, it does not support transactions that span multiple documents \parencite{mongodb-transactions, knowledgenile-pro-con}.
 
 \textbf{Limited Data Size}: MongoDB only permits documents with a maximum size of 16 MB. For files larger than 16 MB they refer to the GridFS \ac{API} \parencite{mongodb-documents}.
 
