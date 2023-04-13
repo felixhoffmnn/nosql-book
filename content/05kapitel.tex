@@ -8,12 +8,12 @@ The following text discusses Neo4j, a graph database management system, and its 
 \section{History} \label{sec:historyNeo4j}
 % Authors: Luca Schwarz
 
-The history of Neo4j started in 2007 when the founder and CEO Chandra Rangan worked with other students on a Graph Database Project for the \ac{IIT}. The database was a success at the university, so the founders
+The history of Neo4j started in 2007 when the founder and CEO Chandra Rangan worked with other students on a graph database project for the \ac{IIT}. The database was a success at the university, so the founders
 decided to start a company. Neo4j has grown over the years and is very popular, specifically among developers in India \parencite{historyneo4j}.
 
 Nowadays, the company behind Neo4j is not a startup anymore. Many big companies, like North America's top 20 credit institutes, use this graph Database. In June 2022, Neo4j had more than 700 Employees around the globe.
 The company recently released a platform where every developer can make suggestions about wished functionalities and even contribute
-to the software written in Java. On the other hand, a closed source database can be bought, for example, by big companies \parencite{historyneo4j}. Also, a community Edition of the database, an open-source product, is available.
+to the software written in Java. On the other hand, a closed source database can be bought, for example, by big companies \parencite{historyneo4j}. Also, a community edition of the database, an open-source product, is available.
 
 In the future, Neo4j wants to expand globally, focusing on India due to \enquote{a larger developer ecosystem} \parencite{historyneo4j}. However, in India and other regions like the US or Europe, the request 
 for Neo4j is big. Therefore Neo4j is hiring country Managers to expand the presence in these countries too \parencite{historyneo4j}.
@@ -22,7 +22,7 @@ To sum it all up, Neo4j has experienced steady growth and is expanding around th
 
 \section{Graph Model and Functionality} \label{sec:graphModelFunctionalityNeo4j}
 
-A graph Database works differently than a relational Database. Unlike a relational database, a graph database uses graphs to store data. Generally speaking, instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information.
+A graph database works differently than a relational database. Unlike a relational database, a graph database uses graphs to store data. Generally speaking, instead of using relations and linking them with foreign keys, a graph model uses edges to link and knots to store information.
 
 To understand a graph database and how it works, some basic graph theory and some problems that exist within graph databases are needed. First of all, a definition of a graph is required. A graph consists of nodes and edges. Nodes can be connected with edges but can also stand alone. If every node has an edge, it is called a connected graph. The graph is called fully connected if any node is connected with any other node.
 Furthermore, there are some specifications. An edge can be one-directed or bi-directed. If a graph contains only one-directed edges, the graph is called \enquote{directed graph}. The edges can also contain weights, the resulting graph would then be called \enquote{weighted graph}. Weights and one-directed edges are optional. The graph is called disconnected if two nodes exist that cannot be endpoints. Otherwise, it is a \enquote{connected graph} \parencite{graphBasics}.
@@ -35,20 +35,19 @@ The next problem is cycles within a graph. To detect cycles within an undirected
 The last problem that will be discussed is the \enquote{Königsberg Bridge Problem}. This problem asks whether a graph can be traversed so that each edge is visited only once, and if so, is there a point that can be start and endpoint. Such a way is called \enquote{eulerian way}. The
 \enquote{Königsberg Bridge Problem} describes the situation in Königsberg and cannot be solved because there is no such a way. Generally speaking a eulerian way exists, if at most two nodes with an odd number of edges are within the graph. This holds true for undirected graphs, within directed graphs, the condition is the same, but the direction of the edges must be considered as well \parencite{koenigsberger}.
 
-Neo4j works on the base of this theoretical background but provides functionalities unrelated to the graph theory. As mentioned in the chapter \nameref{sec:historyNeo4j} Neo4j offers two editions, a community and an enterprise edition. The difference between those two is that the enterprise edition also offers functionalities for clustering and scaling. Therefore the community edition works perfectly fine to set up a smaller
+Neo4j works on the base of this theoretical background but provides functionalities unrelated to the graph theory. As mentioned in the chapter \nameref{sec:historyNeo4j}, Neo4j offers two editions, a community and an enterprise edition. The difference between those two is that the enterprise edition also offers functionalities for clustering and scaling. Therefore the community edition works perfectly fine to set up a smaller
 graph database for a personal use case where clustering is not required. Nevertheless, both editions offer a fully functional database, and every operation on the database can be performed. So customers are not forced to buy the enterprise edition to use the database to its fullest \parencite{Neo4jfeatures}.
 
-Besides the 2. editions, some functionalities are edition-independent. First, Neo4j offers a powerful query language called Cypher, explicitly designed for graph data. Cypher allows users to query the graph using natural language syntax and traverse the graph in real time. Neo4j provides multiple indexing methods so that text-based searches can be performed.
+Besides the two editions, some functionalities are edition-independent. First, Neo4j offers a powerful query language called Cypher, explicitly designed for graph data. Cypher allows users to query the graph using natural language syntax and traverse the graph in real time. Neo4j provides multiple indexing methods so that text-based searches can be performed.
 The enterprise version can scale horizontally, making the database highly performant \parencite{Neo4jfeatures}.
 
-Neo4j is built to depict relations. Hence, the database is mostly used to display social networks or detect fraud. The ability to detect fraud makes Neo4j very attractive for big enterprises because fraud is a common problem \parencite{Neo4jfeatures}. Neo4j can be integrated with various systems to use its benefits, which will be discussed in the following chapter. Due to the possibility of integrating into other systems and the focus on displaying relations, Neo4j, and other graph databases 
-are used widely.
+Neo4j is built to depict relations. Hence, the database is mostly used to display social networks or detect fraud. The ability to detect fraud makes Neo4j very attractive for big enterprises because fraud is a common problem \parencite{Neo4jfeatures}. Neo4j can be integrated with various systems to use its benefits, which will be discussed in the following chapter. Due to the possibility of integrating into other systems and the focus on displaying relations, Neo4j and other graph databases are used widely.
 
 \section{Advantages and Disadvantages} \label{sec:advantagesDisadvantagesNeo4j}
 
 First of all, the data structure of graph databases such as Neo4j is more flexible than the one of relational databases. Each node in a graph database can store multiple attributes. Attributes can be added or deleted anytime without impacting other nodes \parencite{adv_and_disadv_neo4j}. Therefore, a change in the requirements can be adopted easily in a graph database. Adding a column to a relational database is much harder to achieve, so graph databases offer additional flexibility \parencite{diff_rela_neo4j}.
 A key difference between graph and relational databases is that relational databases store relations as foreign keys, whereas graph databases store them as pointers. This difference leads to two advantages that graph databases have regarding relational databases. The first is the amount of storage needed to store the same data. Graph databases need less storage than relational databases if the data is highly connected because a foreign key usually requires more storage than a pointer. Further, the time needed to traverse a relation is constant in a graph database, but in a relational database, the traversal time scales with the amount of data stored. A pointer is a direct reference to a specific storage position, so accessing it always requires the same amount of time. The entire table must be scanned to find the entry a foreign key is referencing. Therefore, if more data is stored, more entries must be scanned to find the corresponding entry \parencite{diff_rela_neo4j}.
-Lastly, most graph databases, including Neo4j, support the query language Cypher. Cypher is a query language that is optimized for graph databases, featuring a simpler syntax for queries that analyze relationships \parencite{use_cases_neo4j}.
+% Lastly, most graph databases, including Neo4j, support the query language Cypher. Cypher is a query language that is optimized for graph databases, featuring a simpler syntax for queries that analyze relationships \parencite{use_cases_neo4j}.
 
 The first disadvantage of graph databases is that the speed of a query highly depends on how many nodes in the graph must be accessed. If a query accesses all nodes, a graph database needs much more time than a relational database because the data structure is not optimized for this use case \parencite{adv_and_disadv_neo4j}. Therefore, a graph database should not be used if the most common queries access all nodes because the performance will be worse than with a relational database \parencite{comparison_neo4j}. 
 Further, graph databases, in general, struggle to implement clustering and sharding because it is much harder to achieve than in a relational database. Because of this, many graph databases cannot be partitioned \parencite{comparison_neo4j}. Neo4j does not support sharding in its free community edition, but the paid enterprise edition introduced sharding about two years ago \parencite{use_cases_neo4j}. 
@@ -64,11 +63,10 @@ Lastly, networks and network infrastructure can be represented in a graph databa
 \section{Implementation of an Example}\label{sec:implementationExampleNeo4j}
 % Authors: Felix Hoffmann, Leopold Fuchs
 
-This section discusses the process of migrating from a relational database model to a graph database model using Neo4j, using a food consumption database as an example. In the relational model, tables are connected through link tables, while in the graph model, nodes and edges represent entities and relationships, respectively. The key steps in the migration process include mapping entities to node labels, creating nodes for each row in a table, and using relationships instead of foreign keys. Additionally, replacing link tables with relationships is essential. Overall, the migration process involves transforming the relational schema into a graph schema, which allows for more flexible and efficient querying and analysis of the data.
-
+This section discusses the implementation of an example for Neo4j. First, a relational database model is migrated to a graph database model. Then, the example is implemented in Neo4j, including information about the installation. Lastly, a query using Cypher will be explained.
 \subsection{Migration of a Relational Model}\label{subsec:migrationRelationModelNeo4j}
 
-The following section focuses on the process of transferring a relational model to a graph model using Neo4j. The migration involves mapping entities and relationships from the relational model to nodes and edges in the graph model. This migration process will be illustrated using the example of a food consumption database. Last, key takeaways from this example will be described as general guidance for migrating from a relational to a graph model.
+The following subsection focuses on the process of transferring a relational model to a graph model using Neo4j. The migration involves mapping entities and relationships from the relational model to nodes and edges in the graph model. This migration process will be illustrated using the example of a food consumption database. Last, key takeaways from this example will be described as general guidance for migrating from a relational to a graph model.
 
 \subsubsection*{Relational Model}
 
@@ -78,7 +76,7 @@ The following section focuses on the process of transferring a relational model 
     \includegraphics[width=0.9\textwidth]{images/neo4j_example_relational_model.png}
 \end{figure}
 
-\autoref{fig:relationalModelNeo4j} shows the relational model of a food consumption database. It consists of three main tables, \textit{Kunde}, \textit{Produkt}, and \textit{allergen} that are connected by the link tables \textit{Konsumiert}, \textit{VertraegtNicht}, and \textit{EnthaeltAllergen}. The link tables are used to map the many-to-many relationships between the main tables.
+\autoref{fig:relationalModelNeo4j} shows the relational model of a food consumption database. It consists of three main tables, \textit{Kunde}, \textit{Produkt}, and \textit{Allergen} that are connected by the link tables \textit{Konsumiert}, \textit{VertraegtNicht}, and \textit{EnthaeltAllergen}. The link tables are used to map the many-to-many relationships between the main tables.
 
 The \textit{Kunde} table contains customer data, such as first name, last name, or diet. The \textit{Produkt} table stores details about the products, such as name and nutritional values. Finally, in the \textit{Allergen} table, the name and nomenclature of the allergens are stored.
 
@@ -152,7 +150,7 @@ For this example, we created additional nodes and relationships. The query resul
 \begin{code}[H]
     \caption{Cypher Query to select allergic reactions} \label{code:cypherFindAllergicReactions}
     \begin{minted}[linenos, breaklines]{cypher}
-// Detect customer who ate a product that contains an allergen that is not able to eat
+// Detect customer who ate a product that contains an allergen that he is not able to eat
 MATCH (k:Kunde)-[:Konsumiert]->(p:Produkt)
 (k)-[:VERTREAGT_NICHT]->(a:Allergen)<-[:ENTHAELT]-(p)
 RETURN k, a, p
