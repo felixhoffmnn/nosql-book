@@ -6,12 +6,12 @@
 \section{Type of Database \& History}
 MongoDB was developed in 2007 by a New York-based organization 10gen which is now called MongoDB Inc. MongoDB was developed as a \ac{PAAS} initially.
 
-Due to the need or idea of the database processing data in large amounts, according to Dwight, the database was named MongoDB, a word obtained from the term \enquote{humongous}.
-Nowadays MongoDB is the most popular Document-oriented Database in use and the fith most popular database management system worldwide
+Due to the need or idea of the database processing data in large amounts, according to Dwight, the database was named MongoDB, a word obtained from the term \enquote{humongous} \parencite{mongodb-History}.
+Nowadays MongoDB is the most popular Document-oriented Database in use and the fifth most popular database management system worldwide \parencite{mongodb-Statista}.
 
-Document-oriented databases, also known as document stores, are a type of NoSQL database that stores data as documents. Each document has a unique key and serves as the value in a key-value store. The main difference between key-value and document stores is that the latter contains metadata that provides structure to the data.
+Document-oriented databases, also known as document stores, are a type of NoSQL database that stores data as documents. Each document has a unique key and serves as the value in a key-value store. The main difference between key-value and document stores is that the latter contains metadata that provides structure to the data \parencite{mongodb-Comparison}.
 
-Document databases typically have an \ac{API} or query language that allows developers to execute the \ac{CRUD} operations.
+Document databases typically have an \ac{API} or query language that allows developers to execute the \ac{CRUD} operations \parencite{mongodb-mongo}.
 
 \begin{itemize}
     \item \textbf{Create:} Documents can be created in the database. Each document has a unique identifier.
@@ -20,21 +20,21 @@ Document databases typically have an \ac{API} or query language that allows deve
     \item \textbf{Delete:} Documents can be deleted from the database.
 \end{itemize}
 
-Document-oriented databases allow for complex data structures, with the ability to nest documents within other documents. Unlike relational databases that spread object information across multiple tables, document stores can store all data for an object in a single document. These databases typically store data as \ac{JSON}, \ac{BSON}, \ac{XML}, or \ac{YAML} documents and can use \ac{SQL}, full-text search, or a native query language for data retrieval. Document stores are popular in e-commerce, blogging, analytics, and content management systems due to their flexible schema and scalability. Sharding is a common horizontal scaling strategy used to scale document stores, which are useful for storing large amounts of unrelated, complex information with varying structures.
+Document-oriented databases allow for complex data structures, with the ability to nest documents within other documents. Unlike relational databases that spread object information across multiple tables, document stores can store all data for an object in a single document. These databases typically store data as \ac{JSON}, \ac{BSON}, \ac{XML}, or \ac{YAML} documents and can use \ac{SQL}, full-text search, or a native query language for data retrieval. Document stores are popular in e-commerce, blogging, analytics, and content management systems due to their flexible schema and scalability. Sharding is a common horizontal scaling strategy used to scale document stores, which are useful for storing large amounts of unrelated, complex information with varying structures \parencite{mongodb-Comparison}.
 
 \begin{figure}[H]
     \centering
-    \caption{Document Database vs SQL based Database} \label{fig:Software pricing Overview}
+    \caption[Document Database vs SQL based Database]{Document Database vs SQL based Database \parencite{mogngodb-image}} \label{fig:Software pricing Overview}
     \includegraphics[width=1.0\textwidth]{images/Document_Database.png}
 \end{figure}
 
 \section{Differences Document Databases vs Relational Databases}
 
-\textbf{The intuitiveness of the data model:} Working with documents is much more intuitive since they correspond to objects in code. Unlike with relational databases, there is no need to split data across tables, perform complex joins, or use a separate \ac{ORM} layer. Instead, data that is typically accessed together is stored together, resulting in less code for developers and improved performance for end users.
+\textbf{The intuitiveness of the data model:} Working with documents is much more intuitive since they correspond to objects in code. Unlike with relational databases, there is no need to split data across tables, perform complex joins, or use a separate \ac{ORM} layer. Instead, data that is typically accessed together is stored together, resulting in less code for developers and improved performance for end users \parencite{mongodb-mongo}.
 
-\textbf{The ubiquity of JSON documents:} The use of \ac{JSON} as a standard for data exchange and storage is now widely accepted. \ac{JSON} documents are lightweight, easy to read by humans, and don't rely on any specific programming language. These documents can represent any type of data model, allowing developers to structure data in the format that best suits their application, whether that's rich objects, key-value pairs, tables, geospatial and time-series data, or graphs consisting of nodes and edges.
+\textbf{The ubiquity of JSON documents:} The use of \ac{JSON} as a standard for data exchange and storage is now widely accepted. \ac{JSON} documents are lightweight, easy to read by humans, and don't rely on any specific programming language. These documents can represent any type of data model, allowing developers to structure data in the format that best suits their application, whether that's rich objects, key-value pairs, tables, geospatial and time-series data, or graphs consisting of nodes and edges \parencite{mongodb-mongo}.
 
-\textbf{The flexibility of the schema:} Document schemas in document databases are both dynamic and self-describing, which eliminates the need for developers to predefine them in the database. As a result, the structure of fields in documents may differ from one document to the next. Developers are also free to modify the structure at any time, avoiding any disruptions caused by schema migrations. Certain document-oriented databases come equipped with schema validation, which allows developers to enforce rules related to document structures if they so choose.
+\textbf{The flexibility of the schema:} Document schemas in document databases are both dynamic and self-describing, which eliminates the need for developers to predefine them in the database. As a result, the structure of fields in documents may differ from one document to the next. Developers are also free to modify the structure at any time, avoiding any disruptions caused by schema migrations. Certain document-oriented databases come equipped with schema validation, which allows developers to enforce rules related to document structures if they so choose \parencite{mongodb-mongo}.
 
 \section{Database Design}
 
@@ -90,9 +90,172 @@ Sharding in MongoDB has 3 main components:
     \includegraphics[width=\textwidth]{images/sharding.jpeg}
 \end{figure}
 
-\section{Advantages}
+\section{Installation}
 
-\textbf{Flexible data model}: MongoDB uses a flexible document data model that allows you to store data in a variety of ways. This makes it easy to adapt to changing business needs and to scale your data as your application grows \parencite{mongodb-datamodels, knowledgenile-pro-con}.
+MongoDB offers various implementation options, including local installation and server deployment. The advantages of using a local MongoDB include increased flexibility and control. However, the responsibility for maintenance and system security lies with the user, as it is hosted on their own server. \parencite{mujdrica_whatismongodb}
+
+In addition, MongoDB can be executed within a containerized environment to support secondary services. Containerization provides benefits such as rapid provisioning, scalability, and portability, making it a useful option for deploying MongoDB. \parencite{mujdrica_docker}
+
+Moreover, MongoDB can be utilized as a Database as a Service (DBaaS), allowing developers to focus on their applications without managing the underlying infrastructure. Prominent examples of DBaaS providers include MongoDB Atlas and AWS. MongoDB as a DBaaS solution offers easy scalability, high availability, automated backups, and maintenance. These features make it a popular choice for organizations seeking to streamline their database management processes. \parencite{mujdrica_aws}
+
+\subsubsection{Installation MongoDB Community Edition}
+
+The MongoDB service includes two different versions: The Enterprise Edition and a free Community Edition. This example is based on the Community Edition, since it´s more affordable and easy to install. There are Installerpackages for all important operating systems, including Windows, Linux and MacOS. Furthermore the Community Edition can be integrated into a Docker-Container-Environment directly through the intended installer. To install MongoDB on a windows operating system, there´s foremost the need of a 64-Bit Version of windows itself. The minimal requirements include atleast 4GB of free memorystorage and 1 GB \ac{RAM}, nevertheless there´s a recommendation to use atleast 4 GB of \ac{RAM} to make the program run more smoothly. Through the installer it´s possible to directly install important tools and widgets to support your work. Using this feature, one can choose different drivers to support different coding languages. Additionally the so called MongoDB compass can be installed. This feature is a visual tool to aid in the management of the MongoDB instances. \parencite{mujdrica_community}
+
+\section{API}
+
+There exist several types of APIs that can be employed to access MongoDB, including terminals and \acp{CLI}. Terminals facilitate the creation, retrieval, and modification of databases, collections, and files. Additionally, scripts can be generated to automate repetitive processes. Furthermore, MongoDB provides a \ac{REST}ful \ac{API} that allows users to access and modify data via \ac{HTTP} requests. This provides a flexible alternative to traditional access methods.
+
+\subsection{MongoDB Compass}
+
+MongoDB Compass is an application designed to manage specific MongoDB instances. It provides all of the features of terminal access, while also offering a user-friendly graphical interface to streamline database management \parencite{mujdrica_compass}.
+
+\begin{figure}[H]
+    \centering
+    \caption{MongoDB Compass user interface} \label{fig:compass}
+    \includegraphics[width=1.0\textwidth]{images/mujdrica/compass.png}
+\end{figure}
+
+This image depicts the user interface of MongoDB Compass. Upon inspection of the topmost uniform resource locator (URL), it becomes apparent that the application has established a connection with the database through the default port. On the left side, a comprehensive list of accessible databases is available. Specifically, the showcased collection is labeled as 'room' and is associated with the 'webdb' database. Additionally, each record features unique identifiers as well as corresponding attributes such as 'name', 'usage', and 'size'. Notably, the application provides various sorting configurations to facilitate the filtering of files based on specific values. MongoDB has other useful features, such as creating schemas.
+
+\subsection{Drivers}
+
+Official MongoDB drivers are available for all common used programming languages, including Python, Java, C++ and other programming languages. These drivers enable direct connections to the MongoDB database service \parencite{mujdrica_drivers}.
+
+\subsubsection{Example}
+
+The following example shows how to use the library pymongo to access a MongoDB database in Python.  The following command in a CLI can be used to install the library \parencite{mujdrica_pymongo}.
+
+\begin{verbatim}
+pip install pymongo
+\end{verbatim}
+
+Now the database can be accessed. First, a connection to the database is established. Then a collection can be opened and read out.
+
+\begin{verbatim}
+import pymongo
+
+client = pymongo.MongoClient('localhost', 27017)
+db = client['webdb']
+collection = db['class']
+
+first_entry = collection.find_one()
+print('ID: ', first_entry['id'])
+print('Name: ', first_entry['name'])
+\end{verbatim}
+
+\section{Comparison MongoDB/MySQL}
+
+Now a MySQL database is to be mocked up with MongoDB. Afterwards, both types of database will be compared with each other based on various criteria. The existing MySQL database has the following schema.
+
+\begin{figure}[H]
+    \centering
+    \caption{Schema of the sample MySQL database} \label{fig:mysql_schema}
+    \includegraphics[width=1.0\textwidth]{images/mujdrica/mysql_schema.png}
+\end{figure}
+
+\subsection{Replication with MongoDb}
+
+To replicate the database in MongoDB, each table is first created as a collection. The following code creates the collections using Python \parencite{mujdrica_pymongo}.
+
+\begin{verbatim}
+import pymongo
+
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["replication"]
+
+# Create Collections
+students_col = db["students"]
+courses_col = db["courses"]
+academic_advisors_col = db["academic_advisors"]
+supervision_col = db["supervision"]
+\end{verbatim}
+
+Afterwards, the data can now be copied from the MySQL database to the MongoDB database. For the table 'Student' the code can look like this \parencite{mujdrica_mysqldriver}.
+
+\begin{verbatim}
+import pymysql
+
+mysql_conn = pymysql.connect(
+    host="localhost",
+    user="username",
+    password="password",
+    database="testdb"
+)
+
+# Call Data from table 'Student'
+mysql_cursor = mysql_conn.cursor()
+mysql_cursor.execute("SELECT * FROM Student")
+students_data = mysql_cursor.fetchall()
+
+#insert data into the mongodb database
+for student in students_data:
+    student_doc = {
+        "matNR": student[0],
+        "vorname": student[1],
+        "nachname": student[2],
+        "email": student[3],
+        "standort": student[4],
+        "kurs_bez": student[5]
+    }
+    students_col.insert_one(student_doc)
+\end{verbatim}
+
+\subsubsection{Data query}
+
+When performing a query between multiple tables in MySQL, joins are used. The following query returns all students that are hosted by an AcademicAdvisor with id 1.
+
+\begin{verbatim}
+SELECT s.* FROM Student s
+INNER JOIN Betreuung b ON s.matNR = b.FK_MatNR
+INNER JOIN AcademicAdvisor a ON b.FK_persNR = a.persNR
+WHERE a.PersNr = 1;
+\end{verbatim}
+
+If you want to read the same information from the MongoDB database, you cannot simply use joins. Instead, a query can be performed as follows \parencite{mujdrica_joinsupdate}.
+
+\begin{verbatim}
+students_col = db["students"]
+supervision_col = db["supervision"]
+advisors_col = db["academic_advisors"]
+
+#find academic advisor with id 1
+advisor = advisors_col.find_one({"PersNR": 1})
+
+students = supervision_col.find({"FK_persNR": advisor["_id"]}, 
+    {"FK_MatNR": 1})
+matnrs = [s["FK_MatNR"] for s in students]
+
+result = students_col.find({
+    "$and": [
+        {"kurs_bez": {"$ne": None}},
+        {"matNR": {"$in": muller_matnrs}}
+    ]
+})
+
+for student in result:
+    print(student)
+\end{verbatim}
+
+\subsection{Comparison}
+
+MongoDB is a \ac{NoSQL} database system that does not rely on chart relationships, as is the case with relational databases such as MySQL. As a result, there are some differences in the way data can be modeled in MongoDB compared to relational databases.
+
+In MongoDB, each document is assigned a unique id field by default, which serves as the primary key. This field is generated automatically during document creation but can also be set manually. Unlike relational databases, MongoDB does not employ foreign keys as there are no table relationships. Instead, a document's id field can be stored as a reference in another collection to refer to data in one document \parencite{mujdrica_comparison}.
+
+MongoDB does not support traditional joins, instead retrieving data by embedding or referencing documents in other collections. Embedding entails storing a document within another document, while referencing involves storing a reference to another document. MongoDB supports a kind of joins since version 3.2 \parencite{mujdrica_comparison, mujdrica_joinsupdate}.
+
+Unlike relational databases, where a schema is established before data insertion, MongoDB does not have set rules for a schema as each record can be individual. Nevertheless, MongoDB supports a flexible schema, allowing fields to be added or removed from a document without changing the schema \parencite{mujdrica_comparison}.
+
+MongoDB provides functions similar to relational databases for aggregating data, such as GROUP BY, COUNT, AVG, MAX, MIN, and others, but there are syntax and usage differences \parencite{mujdrica_comparison}.
+
+It is crucial to note that MongoDB does not support cascading, a common feature in relational databases. If a document that references data in other collections needs to be deleted, a manual command or a script must be used in the MongoDB environment to accomplish it. As a result, modeling data in MongoDB varies from relational databases, with certain aspects, such as defining a primary key, being simpler to implement, while others, such as joins, necessitating a more extended process of embedding or referencing data. However, the best approach for modeling data in MongoDB varies depending on the application's specific requirements \parencite{mujdrica_comparison}.
+
+\section{Advantages and Disadvantages}
+
+\subsection{Advantages}
+
+\textbf{Flexible data model}: MongoDB uses a flexible document data model that allows you to store data in a variety of ways. This makes it easy to adapt to changing business needs and to scale your data as your application grows \parencite{mongodb-datamodels, knowledgenile-pro-con}. 
 
 \textbf{High scalability}: MongoDB is designed to handle large amounts of data and high traffic loads. With sharding it can be easily scaled horizontally by adding more nodes to a cluster \parencite{mongodb-scalability, dataflair_2018}. Furthermore, replica sets enable high availability, handling of redundancy/failover, and less read operation bottlenecks \parencite{mongodb-replica-sets}.
 
@@ -103,15 +266,13 @@ Sharding in MongoDB has 3 main components:
 \textbf{Easy Environment and Setup}: MongoDB requires little setup time and minimal effort to use. Modern JavaScript frameworks are available, and it is quicker and simpler to set up than \ac{RDBMS}.
 Because of this functionality, users can choose NoSQL architectures with confidence. In addition, compared to SQL databases, it offers faster options for learning and training \parencite{knowledgenile-pro-con, jamsheer_2019}.
 
-\section{Disadvantages}
+\subsection{Disadvantages}
 
-\textbf{Lack of ACID compliance}: MongoDB is a \ac{NoSQL} database and does not support \ac{ACID} transactions. While it does provide atomicity at the document level, it does not support transactions that span multiple documents \parencite{mongodb-transactions, knowledgenile-pro-con}.
-
-\textbf{Limited Data Size}: MongoDB only permits documents with a maximum size of 16 MB. For files larger than 16 MB they refer to the GridFS \ac{API} \parencite{mongodb-documents}.
+\textbf{Limited Data Size}: MongoDB only permits documents with a maximum size of 16 MB per default. For files larger than 16 MB they refer to the GridFS \ac{API} \parencite{mongodb-documents}.
 
 \textbf{No schema enforcement}: MongoDB does not enforce a strict schema, which can lead to data inconsistencies if the data is not carefully structured and validated.
 
-\textbf{Higher memory usage}: MongoDB needs a lot of storage since it lacks join functionality, which causes data duplication. The amount of redundant data keeps increasing, which requires extra memory space. \parencite{knowledgenile-pro-con}.
+\textbf{Higher memory usage}: MongoDB needs a lot of storage since it lacks join functionality, which causes data duplication. The amount of redundant data keeps increasing, which requires extra memory space \parencite{knowledgenile-pro-con}.
 
 \textbf{Complexity}: MongoDB's flexible data model and lack of strict schema enforcement can make it more complex to design and manage compared to traditional databases. It may also require more expertise to optimize performance and scale effectively.
 
